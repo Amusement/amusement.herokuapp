@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 var db;
 
-mongodb.MongoClient.connect('mongodb://heroku_kwg772m6:rc4aur4ppp41nhk2ltv5v6v4dd@ds013004.mlab.com:13004/heroku_kwg772m6', function(err, database) {
+mongodb.MongoClient.connect('mongodb://heroku_w6h0lgpz:pcvt1vg08qmg96luk9triv1fku@ds011734.mlab.com:11734/heroku_w6h0lgpz', function(err, database) {
 	if (err) {
 		console.log(err);
 		process.exit(1);
@@ -29,6 +29,7 @@ mongodb.MongoClient.connect('mongodb://heroku_kwg772m6:rc4aur4ppp41nhk2ltv5v6v4d
 
 app.get('/comments', function(req, res) {
 
+	console.log('app.get failed');	
 	db.collection(COMMENTS_COLLECTION).find({}).toArray(function(err, docs) {
 		if (err) {
 			console.log('app.get failed');		
