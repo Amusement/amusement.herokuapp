@@ -1,0 +1,14 @@
+{
+	"name": "amusement",
+	"description": "Personal website",
+	"main": "server.js",
+	"scripts": {
+		"start": "node server.js"
+	},
+	"dependencies": {
+		"express": "~4.13.3",
+		"body-parser": "~1.13.1",
+		"mongodb": "^2.1.6"	
+	}
+}
+
