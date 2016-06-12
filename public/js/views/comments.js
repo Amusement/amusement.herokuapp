@@ -6,13 +6,12 @@ app.CommentsView = Backbone.View.extend({
 
 	el: '#comments',
 
-	initialize: function(initialComments) {
-		
-		this.collection = new app.Comments(initialComments);
-
+	initialize: function() {
+		this.collection = new app.Comments();
+		this.collection.fetch({reset: true});
 		this.render();
-
 		this.listenTo(this.collection, 'add', this.renderComment);
+		this.listenTo(this.collection, 'reset', this.render);
 	},
 
 	events: {
