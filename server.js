@@ -14,6 +14,8 @@ app.use(bodyParser.json());
 
 var db;
 
+//Connect to the database before starting the application server
+
 mongodb.MongoClient.connect(MONGODB_URI, function(err, database) {
 	if (err) {
 		console.log(err);
@@ -21,7 +23,7 @@ mongodb.MongoClient.connect(MONGODB_URI, function(err, database) {
 	}
 
 	db = database;
-	console.log('Db connection ready.');
+	console.log('Database connection successful.');
 
 	var server = app.listen(port, function() {
 		console.log('Running on port', port);
@@ -30,12 +32,21 @@ mongodb.MongoClient.connect(MONGODB_URI, function(err, database) {
 
 app.get('/comments', function(req, res) {
 
-	console.log('app.get failed');	
 	db.collection(COMMENTS_COLLECTION).find({}).toArray(function(err, docs) {
 		if (err) {
-			console.log('app.get failed');		
+			console.log(res, err.message);		
 		} else {
 			res.status(200).json(docs);
+		}
+	});
+});
+
+app.get('/comments/:id', function(req, res) {
+	db.collection(COMMENTS_COLLECTION).findOne({ _id: new ObjectID(req.params.id)}, function(err, doc) {
+		if (err) {
+			console.log(res, err.message);
+		} else {
+			res.status(200).json(doc);
 		}
 	});
 });
@@ -45,9 +56,33 @@ app.post('/comments', function(req, res) {
 
 	db.collection(COMMENTS_COLLECTION).insertOne(newComment, function(err, doc) {
 		if (err) { 
-			console.log('Error in db collection'); 
+			console.log(res, err.message); 
 		} else { 
 			res.status(201).json(doc.ops[0]);
+		}
+	});
+});
+
+app.put('/comments/:id', function(req, res) {
+	var updateComment = req.body;
+	delete updateComment._id;
+
+	db.collection(COMMENTS_COLLECTION).updateOne({_id: new ObjectID(req.params.id)}, updateComment, function(err, doc) {
+		if (err) {
+			console.log(res, err.message);
+		} else {
+			res.status(204).end();
+		}
+		
+	});
+});
+
+app.delete('/comments/:id', function(req, res) {
+	db.collection(COMMENTS_COLLECTION).deleteOne({_id: new ObjectID(req.params.id)}, function(err, result) {
+		if (err) {
+			console.log(res, err.message);
+		} else {
+			res.status(204).end();
 		}
 	});
 });
