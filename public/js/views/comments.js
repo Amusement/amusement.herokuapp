@@ -33,7 +33,10 @@ app.CommentsView = Backbone.View.extend({
 
 		console.log(formData);
 
-		this.collection.add(new app.Comment(formData));
+		//No persistence
+		//this.collection.add(new app.Comment(formData));
+
+		this.collection.create(formData);
 	},
 
 	render: function() {
