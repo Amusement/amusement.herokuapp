@@ -7,62 +7,29 @@
   width: 100vw;
   background-color: white;
   position: absolute;
-  top: 50%;
+  top: 30%;
 }
 
-.col-md-1 {
-  padding: 0px;
+#panel {
+  width: 210px;
+  height: 30px;
+  background-color: red;
+  position: absolute;
+  top: 30px;
+  left: 100px;
 }
 
-@media (min-width: 768px){
-  .nine-cols .col-md-1,
-  .nine-cols .col-sm-1,
-  .nine-cols .col-lg-1  {
-    width: 11.111111111%;
-    *width: 11.111111111%;
-  }
+#anchor {
+  width: 30px;
+  height: 30px;
+  background-color: orange;
+  position: absolute;
+  opacity: 0.5;
+  top: 30px;
+  left: 100px;
 }
 
-
-@media (min-width: 992px) {
-  .nine-cols .col-md-1,
-  .nine-cols .col-sm-1,
-  .nine-cols .col-lg-1 {
-    width: 11.111111111%;
-    *width: 11.111111111%;
-  }
-}
-
-
-@media (min-width: 1200px) {
-  .nine-cols .col-md-1,
-  .nine-cols .col-sm-1,
-  .nine-cols .col-lg-1 {
-    width: 11.111111111%;
-    *width: 11.111111111%;
-  }
-}
-
-@media (min-width: 768px){
-  .horizontal-white  {
-    height: 100%;
-    *height: 100%;
-  }
-}
-
-
-@media (min-width: 992px) {
-  .horizontal-white {
-    height: 11.111111111%;
-    *height: 11.111111111%;
-  }
-}
-
-
-@media (min-width: 1200px) {
-  .horizontal-white {
-    height: 11.111111111%;
-    *height: 11.111111111%;
-  }
+#overboard {
+  width: 30px;
 }
 
