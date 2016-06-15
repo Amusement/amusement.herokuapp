@@ -6,29 +6,24 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="stylesheet" href="css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/seldom.css">
+		<link rel="stylesheet" href="css/flexboxgrid.min.css">
 
 		<script src="js/lib/jquery-2.2.4.min.js"></script>
 		<script src="js/lib/underscore-min.js"></script>
 		<script src="js/lib/backbone-min.js"></script>
 		<script src="js/lib/bootstrap.min.js"></script>
+
 		<script src="js/models/comment.js"></script>
 		<script src="js/collections/comments.js"></script>
 		<script src="js/views/comment.js"></script>
 		<script src="js/views/comments.js"></script>
+		<script src="js/views/navigation.js"></script>
 		<script src="js/app.js"></script>		
 	</head>
 	<body>
-	<!---
 	<div id="panelcontainer">
-		<span id="selector">
-		</span>
+ 		<span id="selector"></span>
 	</div>
-
-	<script type="text/template" id="navpanel">
-		<div id="panel"></div>
-		<div id="anchor"></div>
-	</script>
-	-->
 		<div class="container">
 			<div id="comments" class="collapse">
 				<form id="addComment" role="form" action="#">
@@ -59,6 +54,30 @@
 				<li><%= content %></li>
 			</ul>			
 			<button class="btn btn-danger" id="delete" type="button">Delete</button>
+		</script>
+		<script type="text/template" id="navpanel">
+		<div id="panel">
+		  	<div class="flex-container-row">
+				<div class="flex-item"><span class="glyphicon glyphicon-education"></span></div>
+				<div class="flex-item">2</div>
+				<div class="flex-item">3</div>
+				<div class="flex-item">4</div>
+				<div class="flex-item">5</div>
+				<div class="flex-item">6</div>
+				<div class="flex-item">7</div>
+		  	</div>
+		</div>
+		<div id="overboard">
+			<div class="flex-container-column">
+				<div class="flex-item">1</div>
+				<div class="flex-item">2</div>
+				<div class="flex-item">3</div>
+				<div class="flex-item">4</div>
+				<div class="flex-item">5</div>
+				<div class="flex-item">6</div>
+				<div class="flex-item">7</div>
+			</div>
+		</div>
 		</script>
 	</body>
 </html>
