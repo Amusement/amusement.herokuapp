@@ -11,21 +11,22 @@
 }
 
 #panel {
-  width: 210px;
-  height: 30px;
-  position: absolute;
-  opacity: 0.7;
-  top: 150px;
-  left: 100px;
-}
-#overboard {
-  width: 30px;
-  height: 30px;
-  background-color: red;
+  width: 420px;
+  height: 60px;
   position: absolute;
   opacity: 0.5;
   top: 150px;
   left: 100px;
+}
+#overboard {
+  width: 60px;
+  height: 60px;
+  background-color: white;
+  position: absolute;
+  opacity: 0.5;
+  top: 150px;
+  left: 100px;
+  z-index: 1;
   overflow:hidden;
   -webkit-transition:all 1.0s ease-in-out;
   -moz-transition:all 1.0s ease-in-out;
@@ -42,7 +43,6 @@
     display: -webkit-flex;
     display: flex;
     -webkit-flex-flow: row;
-    //line-height:30px;
 }
 
 .flex-container-column {
@@ -59,15 +59,16 @@
 }
 
 .flex-item {
-    background: red;
+    background: white;
     text-align: center;
-    font-size: 130%;
+    vertical-aligh: middle;
+    font-size: 260%;
     flex: 1 0 0px;
     min-width: 1.5em;
 }
 .flex-item:before {
     content: "";
-    display: block;
-    padding-top: 100%;
+	  display: block;
+	  padding-top: 100%;
     float: left;
 }
