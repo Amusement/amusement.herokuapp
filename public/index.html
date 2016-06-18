@@ -15,10 +15,12 @@
 		<script src="js/lib/bootstrap.min.js"></script>
 
 		<script src="js/models/comment.js"></script>
+		<script src="js/models/intersection.js"></script>
 		<script src="js/collections/comments.js"></script>
 		<script src="js/views/comment.js"></script>
 		<script src="js/views/comments.js"></script>
 		<script src="js/views/navigation.js"></script>
+		<script src="js/views/page.js"></script>
 		<script src="js/app.js"></script>		
 	</head>
 	<body>
@@ -39,8 +41,9 @@
 
 			<footer class="footer">
 				<p>In development.</p>
+				<div id="page"><div id="coordinates"></div></div>
 			</footer>
-		</div> <!-- /container -->
+		</div>
 
 
 		<span id="selector">
@@ -57,6 +60,7 @@
 			</div>
 		  <div id="verticalnav"></div>
 		</span>
+
 		<div class="container">
 			<div id="comments" class="collapse">
 				<form id="addComment" role="form" action="#">
@@ -96,6 +100,9 @@
 				<% }) %>
 			    </div>
 			  </div>
+		</script>
+		<script type="text/template" id="heading">
+			<h3> <%= name %> </h3>
 		</script>
 	</body>
 </html>

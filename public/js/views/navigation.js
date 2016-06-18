@@ -1,7 +1,9 @@
 var app = app || {};
 
 $(function () {
+
 app.NavigationView = Backbone.View.extend({
+
   el: '#verticalnav',
   
   initialize: function(){
@@ -21,10 +23,9 @@ app.NavigationView = Backbone.View.extend({
   },
   
   render: function(c) {
-  	var data = this.data[String(c)];
+    var data = this.model.get('data')[String(c)];
     var template = _.template($('#navpanel').html());
     this.$el.html( template({data : data}) );
-    
   },
   
   events: {
@@ -35,20 +36,11 @@ app.NavigationView = Backbone.View.extend({
     e.preventDefault();
     this.rerender(e.keyCode);
   },
-  
-  data: {'0': ['glyphicon-tint', 'glyphicon-certificate'],
-  			 '1': ['glyphicon-bell', 'glyphicon-tower'],
-         '2': ['glyphicon-picture', 'glyphicon-repeat'],
-         '3': ['glyphicon-heart', 'glyphicon-tower'],
-         '4': ['glyphicon-time', 'glyphicon-repeat', 'glyphicon-repeat'],
-         '5': ['glyphicon-off', 'glyphicon-bell'],
-         '6': ['glyphicon-bookmark', 'glyphicon-repeat', 'glyphicon-certificate']
-  },
-  
+   
   // Input: category (e.g '1', '2', '6' etc;)
   // Output: number of items in input category
   getnum: function(c) {
-  	 return (this.data[String(c)]).length;
+     return (this.model.get('data')[String(c)]).length;
   },
   
   // Input: category, desired output type (one of: 'px' or 'int')
@@ -95,14 +87,13 @@ app.NavigationView = Backbone.View.extend({
   	var bound = this.original_left + this.square;
     if (this.left + this.square < bound) {
     	this.left += this.square;
-      this.adjunct = 0;
-      this.category -= 1;
+      this.adjunct = 0; this.model.set('y', 0);
+      this.category -= 1; this.model.set('x', this.model.get('x') - 1);
       this.render(this.category);
       this.throwanchor();
    	 	var val = this.left + 'px';
     	$('#panel').css('left', val);
     }
-    console.log(this.category + ',' + this.adjunct);
   },
   
   uw: function() {
@@ -112,23 +103,21 @@ app.NavigationView = Backbone.View.extend({
     	var val = (this.top - this.square) + 'px';
     	$('#overboard').css('top', val);
       this.top -= this.square;
-      this.adjunct += 1;
+      this.adjunct += 1; this.model.set('y', this.model.get('y') + 1);
     }
-    console.log(this.category + ',' + this.adjunct);
   },
   
   rd: function() {
   var bound = this.original_left - this.original_width;
     if (this.left - this.square > bound) {
     	this.left -= this.square;
-      this.adjunct = 0;
-      this.category += 1;
+      this.adjunct = 0; this.model.set('y', 0);
+      this.category += 1; this.model.set('x', this.model.get('x') + 1);
       this.render(this.category);
       this.throwanchor();
       var val = this.left + 'px';
       $('#panel').css('left', val);
     }
-    console.log(this.category + ',' + this.adjunct);
   },
   
   ds: function() {
@@ -136,9 +125,8 @@ app.NavigationView = Backbone.View.extend({
     	var val = (this.top + this.square) + 'px';
       $('#overboard').css('top', val);
       this.top += this.square;
-      this.adjunct -= 1;
+      this.adjunct -= 1; this.model.set('y', this.model.get('y') - 1);
     }
-    console.log(this.category + ',' + this.adjunct);
   },
   
   throwanchor: function() {
