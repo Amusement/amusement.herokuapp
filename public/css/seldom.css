@@ -1,3 +1,7 @@
+body {
+  background-image: url('../images/Anchorage.jpg');
+}
+
 .vertical-white {
   height: 100vh;
   background-color: white;
@@ -32,6 +36,10 @@
   -moz-transition:all 1.0s ease-in-out;
   -o-transition:all 1.0s ease-in-out;
   transition:all 1.0s ease-in-out;
+}
+#page {
+  background-color: navy;
+  opacity: 0.5;
 }
 .flex-container-row {
     padding: 0;
