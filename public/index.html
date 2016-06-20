@@ -7,7 +7,6 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
 		<link rel="stylesheet" href="css/seldom.css">
 		<link rel="stylesheet" href="css/flexboxgrid.min.css">
-		<link rel="stylesheet" href="css/jumbotron-narrow.css">
 
 		<script src="js/lib/jquery-2.2.4.min.js"></script>
 		<script src="js/lib/underscore-min.js"></script>
@@ -24,29 +23,9 @@
 		<script src="js/app.js"></script>		
 	</head>
 	<body>
-		<div class="container">
-			<div class="header clearfix">
-				<nav>
-					<ul class="nav nav-pills pull-right">
-					<!-- ?? -->
-					</ul>
-				</nav>
-				<h3 class="text-muted">Project name</h3>
-			</div>
-
-			<div class="jumbotron">
-				<h1>Amusement</h1>
-				<p class="lead">In development.</p>
-				<div id="page"><div id="coordinates"></div></div>
-			</div>
-
-			<footer class="footer">
-				<p>In development.</p>
-			</footer>
-		</div>
-
-
-		<span id="selector">
+		<div class="container">	
+	
+			<span id="selector">
 			<div id="panel">
 				<div class="flex-container-row">
 					<div class="flex-item"><span class="glyphicon glyphicon-console"></span></div>
@@ -58,9 +37,13 @@
 					<div class="flex-item"><span class="glyphicon glyphicon-send"></span></div>
 				</div>
 			</div>
-		  <div id="verticalnav"></div>
-		</span>
-
+			<div id="verticalnav"></div>
+			</span>
+			
+			<div id="page"><div id="coordinates"></div></div>
+		</div>
+		
+		<bloc></bloc>
 		<div class="container">
 			<div id="comments" class="collapse">
 				<form id="addComment" role="form" action="#">
