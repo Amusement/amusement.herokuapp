@@ -29,10 +29,10 @@
   left: 230px;
   z-index: 3;
   overflow:hidden;
-  -webkit-transition:all 1.0s ease-in-out;
-  -moz-transition:all 1.0s ease-in-out;
-  -o-transition:all 1.0s ease-in-out;
-  transition:all 1.0s ease-in-out;
+  -webkit-transition:all .6s ease-in-out;
+  -moz-transition:all .6s ease-in-out;
+  -o-transition:all .6s ease-in-out;
+  transition:all .6s ease-in-out;
 }
 #page {
   background-color: navy;
