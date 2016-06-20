@@ -1,13 +1,24 @@
-.vertical-white {
-  height: 100vh;
-  background-color: white;
+.white {
+  color: white;
 }
 
-.horizontal-white {
+#stride {
   width: 100vw;
-  background-color: white;
   position: absolute;
-  top: 30%;
+  top: 30px;
+  height: 50px;
+  background-color: black;
+  opacity: 0.8;
+}
+
+#step {
+  width: 60px;
+  position: absolute;
+  top: 30px;
+  left: 230px;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.8;
 }
 
 #panel {
@@ -35,21 +46,20 @@
   transition:all .6s ease-in-out;
 }
 #page {
-  background-color: navy;
-  opacity: 0.5;
+  background-color: white;
   position: absolute;
   top: 90px;
   left: 290px;	
   width: 750px;	
 }
 bloc {
-  width: 50px;
-  height: 45px;
-  background-color: navy;
+  width: 60px;
+  height: 50px;
+  background-color: black;
   position: absolute;
   opacity: 1;
   top: 30px;
-  left: 235px;
+  left: 230px;
   z-index: 2;
 }
 .flex-container-row {
@@ -78,16 +88,17 @@ bloc {
 }
 
 .flex-item {
-    background: white;
+    background: black;
+    opacity: 0.8;
     text-align: center;
-    vertical-aligh: middle;
+    vertical-align: middle;
     font-size: 260%;
     flex: 1 0 0px;
     min-width: 1.5em;
 }
 .flex-item:before {
     content: "";
-	  display: block;
-	  padding-top: 100%;
+    display: block;
+    padding-top: 100%;
     float: left;
 }

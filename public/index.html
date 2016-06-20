@@ -23,18 +23,19 @@
 		<script src="js/app.js"></script>		
 	</head>
 	<body>
-
+		<div id="stride"></div>
+		<div id="step"></div>
 	
 			<span id="selector">
 			<div id="panel">
 				<div class="flex-container-row">
-					<div class="flex-item"><span class="glyphicon glyphicon-console"></span></div>
-					<div class="flex-item"><span class="glyphicon glyphicon-apple"></span></div>
-					<div class="flex-item"><span class="glyphicon glyphicon-education"></span></div>
-					<div class="flex-item"><span class="glyphicon glyphicon-leaf"></span></div>
-					<div class="flex-item"><span class="glyphicon glyphicon-stats"></span></div>
-					<div class="flex-item"><span class="glyphicon glyphicon-globe"></span></div>
-					<div class="flex-item"><span class="glyphicon glyphicon-send"></span></div>
+					<div class="flex-item"><span class="glyphicon glyphicon-console white"></span></div>
+					<div class="flex-item"><span class="glyphicon glyphicon-apple white"></span></div>
+					<div class="flex-item"><span class="glyphicon glyphicon-education white"></span></div>
+					<div class="flex-item"><span class="glyphicon glyphicon-leaf white"></span></div>
+					<div class="flex-item"><span class="glyphicon glyphicon-stats white"></span></div>
+					<div class="flex-item"><span class="glyphicon glyphicon-globe white"></span></div>
+					<div class="flex-item"><span class="glyphicon glyphicon-send white"></span></div>
 				</div>
 			</div>
 			<div id="verticalnav"></div>
@@ -78,7 +79,7 @@
 			  <div id="overboard">
 			  <div class="flex-container-column">
 				<% _.each(data, function(item, key, list) { %>
-					<div class="flex-item"><span class="glyphicon <%= item %>"></span></div>
+					<div class="flex-item"><span class="glyphicon <%= item %> white"></span></div>
 				<% }) %>
 			    </div>
 			  </div>
