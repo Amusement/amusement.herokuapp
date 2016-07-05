@@ -7,6 +7,14 @@ $(function () {
     el: "#webglcanvas",
 
     initialize: function() {
+
+	this.set();	
+
+	this.listenTo(this.model, 'change:x', this.identity);
+	this.listenTo(this.model, 'change:y', this.identitty);
+    },
+
+    set: function() {
 	
 	this.scene = new THREE.Scene();
 	this.camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 20000);
@@ -16,23 +24,33 @@ $(function () {
 
 	this.$el.append(this.renderer.domElement);
 	this.geometry = new THREE.BoxGeometry(1,1,1);
-	this.material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+	this.material = new THREE.MeshBasicMaterial({color: 0xffff});
 	this.cube = new THREE.Mesh(this.geometry, this.material);
+
 	this.scene.add(this.cube);
 	this.camera.position.z = 5;
+	this.controls = new THREE.OrbitControls( this.camera, this.renderer.domElement );
 	
-	this.animate();
+	this.animate(1, 1);
 
-	this.listenTo(this.model, 'change', this.animate);
     },
 
-    animate: function() {
+    animate: function(dx, dy) {
 	var parent = this;
-	requestAnimationFrame(function() {parent.animate();});
+	requestAnimationFrame(function() {parent.animate(1, 1);});
+	
+	this.cube.rotation.x += (dx * 0.01);
+	this.cube.rotation.y += (dy * 0.01);
 
-	this.cube.rotation.x -= 0.05;
-	this.cube.rotation.y -= 0.05;
 	this.renderer.render(parent.scene, parent.camera);
+    },
+
+    identity: function() {
+	this.animate(this.model.get("x"), 0);
+    },
+
+    identitty: function() {
+	this.animate(0, this.model.get("y"));
     },
 
     render: function() {
