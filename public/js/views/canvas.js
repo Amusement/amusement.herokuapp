@@ -24,10 +24,11 @@ $(function () {
 
 	this.$el.append(this.renderer.domElement);
 	this.geometry = new THREE.BoxGeometry(1,1,1);
-	this.material = new THREE.MeshBasicMaterial({color: 0xffff});
+	this.material = new THREE.MeshPhongMaterial( { emissive: 0x111111, envMap: this.camera.renderTarget } );
 	this.cube = new THREE.Mesh(this.geometry, this.material);
 
 	this.scene.add(this.cube);
+
 	this.camera.position.z = 5;
 	this.controls = new THREE.OrbitControls( this.camera, this.renderer.domElement );
 
@@ -40,7 +41,7 @@ $(function () {
 	var skyGeometry = new THREE.CubeGeometry( 100, 100, 100 );	
 	
 	var materialArray = [];
-	for (var i = 0; i < 6; i++)
+	for (var i = 0; i < 6; i++) 
 		materialArray.push( new THREE.MeshBasicMaterial({
 			map: THREE.ImageUtils.loadTexture( imagePrefix + directions[i] + imageSuffix ),
 			side: THREE.BackSide
@@ -55,6 +56,7 @@ $(function () {
 
     animate: function(dx, dy) {
 	var parent = this;
+
 	requestAnimationFrame(function() {parent.animate(1, 1);});
 	
 	this.cube.rotation.x += (dx * 0.01);
