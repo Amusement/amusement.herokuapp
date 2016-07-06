@@ -42,7 +42,7 @@ $(function () {
 	var materialArray = [];
 	for (var i = 0; i < 6; i++)
 		materialArray.push( new THREE.MeshBasicMaterial({
-			map: THREE.ImageUtils.TextureLoader( imagePrefix + directions[i] + imageSuffix ),
+			map: THREE.ImageUtils.loadTexture( imagePrefix + directions[i] + imageSuffix ),
 			side: THREE.BackSide
 		}));
 	var skyMaterial = new THREE.MeshFaceMaterial( materialArray );
