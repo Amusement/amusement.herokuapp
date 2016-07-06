@@ -34,7 +34,7 @@ $(function () {
 	var axes = new THREE.AxisHelper(100);
 	this.scene.add(axes);
 	
-	var imagePrefix = "../../images/fl-";
+	var imagePrefix = "../../images/hd-";
 	var directions  = ["xpos", "xneg", "ypos", "yneg", "zpos", "zneg"];
 	var imageSuffix = ".png";
 	var skyGeometry = new THREE.CubeGeometry( 100, 100, 100 );	
