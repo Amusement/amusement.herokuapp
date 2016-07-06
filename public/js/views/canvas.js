@@ -37,7 +37,7 @@ $(function () {
 	var imagePrefix = "../../images/fl-";
 	var directions  = ["xpos", "xneg", "ypos", "yneg", "zpos", "zneg"];
 	var imageSuffix = ".png";
-	var skyGeometry = new THREE.CubeGeometry( 10, 10, 10 );	
+	var skyGeometry = new THREE.CubeGeometry( 5000, 5000, 5000 );	
 	
 	var materialArray = [];
 	for (var i = 0; i < 6; i++)
