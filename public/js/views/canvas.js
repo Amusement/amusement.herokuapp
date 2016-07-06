@@ -34,10 +34,10 @@ $(function () {
 	var axes = new THREE.AxisHelper(100);
 	this.scene.add(axes);
 	
-	var imagePrefix = "../../images/sp-";
+	var imagePrefix = "../../images/fl-";
 	var directions  = ["xpos", "xneg", "ypos", "yneg", "zpos", "zneg"];
-	var imageSuffix = ".jpg";
-	var skyGeometry = new THREE.CubeGeometry( 5000, 5000, 5000 );	
+	var imageSuffix = ".png";
+	var skyGeometry = new THREE.CubeGeometry( 10, 10, 10 );	
 	
 	var materialArray = [];
 	for (var i = 0; i < 6; i++)
