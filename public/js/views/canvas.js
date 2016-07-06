@@ -30,6 +30,24 @@ $(function () {
 	this.scene.add(this.cube);
 	this.camera.position.z = 5;
 	this.controls = new THREE.OrbitControls( this.camera, this.renderer.domElement );
+
+	var axes = new THREE.AxisHelper(100);
+	this.scene.add(axes);
+	
+	var imagePrefix = "../../images/sp-";
+	var directions  = ["xpos", "xneg", "ypos", "yneg", "zpos", "zneg"];
+	var imageSuffix = ".jpg";
+	var skyGeometry = new THREE.CubeGeometry( 5000, 5000, 5000 );	
+	
+	var materialArray = [];
+	for (var i = 0; i < 6; i++)
+		materialArray.push( new THREE.MeshBasicMaterial({
+			map: THREE.ImageUtils.TextureLoader( imagePrefix + directions[i] + imageSuffix ),
+			side: THREE.BackSide
+		}));
+	var skyMaterial = new THREE.MeshFaceMaterial( materialArray );
+	var skyBox = new THREE.Mesh( skyGeometry, skyMaterial );
+	this.scene.add( skyBox );
 	
 	this.animate(1, 1);
 
@@ -46,11 +64,11 @@ $(function () {
     },
 
     identity: function() {
-	this.animate(this.model.get("x"), 0);
+	//
     },
 
     identitty: function() {
-	this.animate(0, this.model.get("y"));
+	//
     },
 
     render: function() {
